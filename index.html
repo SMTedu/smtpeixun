@@ -5,44 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMT专业技术培训 - 实战教学中心</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",Arial,sans-serif}
-        body{background:#f7f9fc;color:#222}
+        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",sans-serif}
+        body{color:#222;background:#f8f9fa}
         a{text-decoration:none}
         
         /* 导航 */
-        nav{background:#0f1a5a;color:white;padding:18px 0;position:sticky;top:0;z-index:99}
-        .nav-wrap{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px}
+        nav{background:#0f1a5a;color:#fff;padding:18px 0;position:sticky;top:0;z-index:100}
+        .nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px}
         .logo{font-size:22px;font-weight:bold}
-        .menu a{color:white;margin-left:24px;font-size:15px}
+        .menu a{color:#fff;margin-left:24px;font-size:15px}
         
-        /* 头部横幅 */
-        .hero{background:linear-gradient(to right,#0a194e,#1a237e);color:white;padding:80px 0;text-align:center}
-        .hero h1{font-size:38px;margin-bottom:14px}
-        .hero p{font-size:19px;opacity:.95;max-width:800px;margin:0 auto}
+        /* 轮播大图 */
+        .slider{
+            width:100%;height:560px;
+            background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.65)),
+            url("https://i.imgur.com/CS0bD6y.gif") center center no-repeat;
+            background-size:cover;
+            display:flex;align-items:center;justify-content:center;
+            text-align:center;color:#fff
+        }
+        .slider h1{font-size:42px;margin-bottom:12px}
+        .slider p{font-size:20px;max-width:800px;margin:auto}
         
         /* 容器 */
-        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .container{max-width:1200px;margin:auto;padding:0 20px}
         
-        /* 区块 */
-        .section{padding:65px 0}
-        .title{text-align:center;font-size:28px;margin-bottom:12px;color:#111}
-        .subtitle{text-align:center;color:#666;margin-bottom:45px;font-size:16px}
+        /* 标题 */
+        .section{padding:70px 0}
+        .title{text-align:center;font-size:30px;margin-bottom:10px}
+        .subtitle{text-align:center;color:#666;margin-bottom:40px}
         
         /* 卡片 */
         .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
-        .card{background:white;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.06);padding:30px}
+        .card{background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05);padding:30px}
         .card h3{font-size:20px;margin-bottom:15px;color:#0f1a5a}
-        .card p{color:#555;line-height:1.7}
-        .card ul{padding-left:22px;line-height:1.9;color:#444;margin-top:10px}
+        .card ul{padding-left:22px;line-height:1.9;color:#333}
+        .card p{line-height:1.7;color:#555}
         
         /* 按钮 */
-        .btn{display:inline-block;background:#1a237e;color:white;padding:14px 28px;border-radius:8px;margin-top:20px;font-weight:bold}
-        .btn:hover{background:#0f1a5a}
+        .btn{display:inline-block;background:#1a237e;color:#fff;padding:14px 30px;border-radius:8px;margin-top:20px;font-weight:bold}
+        .btn:hover{background:#0c164d}
         
-        /* 联系 */
-        .contact{background:#eef2ff;padding:70px 0;text-align:center}
-        .qrcode{margin:20px 0}
-        .contact p{font-size:17px;color:#333;margin:8px 0}
+        /* 设备展示区 */
+        .equipment{
+            padding:70px 0;
+            background:linear-gradient(rgba(245,247,250,0.9),rgba(245,247,250,0.9)),
+            url("https://i.imgur.com/6vNsH6Z.gif") center center no-repeat;
+            background-size:cover
+        }
+        
+        /* 联系区 */
+        .contact{
+            padding:70px 0;text-align:center;
+            background:linear-gradient(rgba(10,25,78,0.8),rgba(26,35,126,0.9)),
+            url("https://i.imgur.com/kbXg74H.gif") center center no-repeat;
+            background-size:cover;color:#fff
+        }
+        .qrcode img{width:200px;border-radius:10px;margin:20px 0}
         
         /* 底部 */
         footer{background:#111;color:#fff;padding:35px 0;text-align:center;font-size:15px}
@@ -53,21 +72,22 @@
 
 <!-- 导航 -->
 <nav>
-    <div class="nav-wrap">
+    <div class="nav">
         <div class="logo">SMT实战技术培训中心</div>
         <div class="menu">
-            <a href="#course">课程体系</a>
+            <a href="#course">培训课程</a>
             <a href="#advantage">核心优势</a>
+            <a href="#equipment">实训设备</a>
             <a href="#contact">报名咨询</a>
         </div>
     </div>
 </nav>
 
-<!-- 首屏 -->
-<section class="hero">
+<!-- 轮播大图（SMT动态背景） -->
+<section class="slider">
     <div class="container">
-        <h1>SMT专业技能培训 · 实战化教学基地</h1>
-        <p>专注贴片机编程、SMT工艺、设备维护、品质管控，培养行业紧缺技术人才</p>
+        <h1>SMT专业技能培训 · 工厂实战教学基地</h1>
+        <p>贴片机编程 | 工艺控制 | 设备维护 | 品质管理 | 高薪就业</p>
     </div>
 </section>
 
@@ -75,7 +95,7 @@
 <section class="section" id="course">
     <div class="container">
         <div class="title">精品培训课程</div>
-        <div class="subtitle">从零基础到就业，系统化实战教学</div>
+        <div class="subtitle">系统化教学，零基础也能快速掌握</div>
         <div class="grid">
             <div class="card">
                 <h3>🔹 SMT基础实战班</h3>
@@ -115,53 +135,49 @@
 <section class="section" id="advantage">
     <div class="container">
         <div class="title">我们的核心优势</div>
-        <div class="subtitle">专注实战，让你真正掌握SMT技术</div>
+        <div class="subtitle">实战教学，学会为止，推荐就业</div>
         <div class="grid">
-            <div class="card">
-                <h3>✅ 实战化教学</h3>
-                <p>真机设备全程实操，拒绝纯理论，学完即可上岗。</p>
-            </div>
-            <div class="card">
-                <h3>✅ 工厂级设备</h3>
-                <p>贴片机、印刷机、回流焊、AOI完整产线教学环境。</p>
-            </div>
-            <div class="card">
-                <h3>✅ 推荐就业</h3>
-                <p>与多家电子制造企业合作，结业推荐就业，助力高薪发展。</p>
-            </div>
-            <div class="card">
-                <h3>✅ 灵活学习</h3>
-                <p>全日制、周末班、晚班、一对一私教，随到随学。</p>
-            </div>
-            <div class="card">
-                <h3>✅ 资深讲师</h3>
-                <p>10年以上工厂一线技术总监授课，经验直接传授。</p>
-            </div>
-            <div class="card">
-                <h3>✅ 学会为止</h3>
-                <p>不限学习时长，技术掌握为止，长期提供技术支持。</p>
-            </div>
+            <div class="card"><h3>✅ 实战化教学</h3><p>真机设备全程实操，拒绝纯理论，学完即可上岗。</p></div>
+            <div class="card"><h3>✅ 工厂级设备</h3><p>贴片机、印刷机、回流焊、AOI完整产线教学环境。</p></div>
+            <div class="card"><h3>✅ 推荐就业</h3><p>与多家电子制造企业合作，结业推荐就业。</p></div>
+            <div class="card"><h3>✅ 灵活学习</h3><p>全日制、周末班、晚班、一对一私教，随到随学。</p></div>
+            <div class="card"><h3>✅ 资深讲师</h3><p>10年以上工厂技术总监授课，经验直接传授。</p></div>
+            <div class="card"><h3>✅ 学会为止</h3><p>不限学习时长，长期提供技术支持。</p></div>
         </div>
     </div>
 </section>
 
-<!-- 联系 -->
+<!-- 实训设备区（SMT动态背景） -->
+<section class="equipment" id="equipment">
+    <div class="container">
+        <div class="title">实训设备展示</div>
+        <div class="subtitle">真实工厂环境，设备齐全，学习更贴近现场</div>
+        <div class="grid">
+            <div class="card"><h3>🔹 高速贴片机</h3><p>富士、松下、雅马哈、三星等主流机型实操。</p></div>
+            <div class="card"><h3>🔹 全自动印刷机</h3><p>锡膏印刷工艺、钢网调试、品质控制教学。</p></div>
+            <div class="card"><h3>🔹 回流焊炉</h3><p>温区曲线设置、温度测试、焊接品质优化。</p></div>
+            <div class="card"><h3>🔹 AOI光学检测</h3><p>不良识别、程序制作、品质判定标准。</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- 报名咨询（SMT动态背景） -->
 <section class="contact" id="contact">
     <div class="container">
         <div class="title">报名咨询通道</div>
-        <div class="subtitle">添加微信，获取课程详情与学费</div>
+        <div class="subtitle">添加微信，获取课程表、学费与开班时间</div>
         <div class="qrcode">
-            <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/wechat.png" alt="微信咨询" style="width:200px;border-radius:8px">
+            <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/wechat.png" alt="微信咨询">
         </div>
-        <p>学习地址：深圳市 · SMT实战教学基地</p>
-        <a href="#contact" class="btn">添加微信咨询</a>
+        <p style="font-size:18px;margin:10px 0">学习地址：深圳市 · SMT实战教学基地</p>
+        <a href="#contact" class="btn" style="background:#fff;color:#1a237e">添加微信咨询</a>
     </div>
 </section>
 
 <!-- 底部 -->
 <footer>
     <div class="container">
-        <p>© 2026 SMT实战技术培训中心 版权所有 | 职业技能培训 · 实战教学</p>
+        <p>© 2026 SMT实战技术培训中心 版权所有 | 职业技能培训 · 实战教学基地</p>
     </div>
 </footer>
 
