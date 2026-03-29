@@ -5,70 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMT专业技术培训 - 实战教学中心</title>
     <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",sans-serif}
-        body{background:#f5f7fa;color:#333}
-        header{background:#1a237e;color:white;padding:20px 0;text-align:center}
-        .container{max-width:1100px;margin:0 auto;padding:0 20px}
-        .banner{background:#0a194e;color:white;padding:60px 0;text-align:center}
-        .banner h1{font-size:32px;margin-bottom:10px}
-        .banner p{font-size:18px;opacity:.9}
-        .section{padding:50px 0}
-        .section h2{text-align:center;font-size:26px;margin-bottom:30px;color:#222}
-        .card-box{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:20px}
-        .card{background:white;border-radius:10px;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:25px}
-        .card h3{margin-bottom:15px;color:#1a237e}
-        .card ul{padding-left:20px;line-height:1.8}
-        .btn{display:inline-block;background:#1a237e;color:white;padding:12px 25px;border-radius:6px;text-decoration:none;margin-top:15px}
-        .contact{background:#f0f2ff;padding:50px 0;text-align:center}
-        footer{background:#111;color:#fff;padding:30px 0;text-align:center;font-size:16px}
+        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",Arial,sans-serif}
+        body{background:#f7f9fc;color:#222}
+        a{text-decoration:none}
+        
+        /* 导航 */
+        nav{background:#0f1a5a;color:white;padding:18px 0;position:sticky;top:0;z-index:99}
+        .nav-wrap{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px}
+        .logo{font-size:22px;font-weight:bold}
+        .menu a{color:white;margin-left:24px;font-size:15px}
+        
+        /* 头部横幅 */
+        .hero{background:linear-gradient(to right,#0a194e,#1a237e);color:white;padding:80px 0;text-align:center}
+        .hero h1{font-size:38px;margin-bottom:14px}
+        .hero p{font-size:19px;opacity:.95;max-width:800px;margin:0 auto}
+        
+        /* 容器 */
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        
+        /* 区块 */
+        .section{padding:65px 0}
+        .title{text-align:center;font-size:28px;margin-bottom:12px;color:#111}
+        .subtitle{text-align:center;color:#666;margin-bottom:45px;font-size:16px}
+        
+        /* 卡片 */
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
+        .card{background:white;border-radius:12px;box-shadow:0 4px 18px rgba(0,0,0,.06);padding:30px}
+        .card h3{font-size:20px;margin-bottom:15px;color:#0f1a5a}
+        .card p{color:#555;line-height:1.7}
+        .card ul{padding-left:22px;line-height:1.9;color:#444;margin-top:10px}
+        
+        /* 按钮 */
+        .btn{display:inline-block;background:#1a237e;color:white;padding:14px 28px;border-radius:8px;margin-top:20px;font-weight:bold}
+        .btn:hover{background:#0f1a5a}
+        
+        /* 联系 */
+        .contact{background:#eef2ff;padding:70px 0;text-align:center}
+        .qrcode{margin:20px 0}
+        .contact p{font-size:17px;color:#333;margin:8px 0}
+        
+        /* 底部 */
+        footer{background:#111;color:#fff;padding:35px 0;text-align:center;font-size:15px}
     </style>
 </head>
+
 <body>
 
-<header>
-    <div class="container">
-        <h2>SMT实战技术培训中心</h2>
+<!-- 导航 -->
+<nav>
+    <div class="nav-wrap">
+        <div class="logo">SMT实战技术培训中心</div>
+        <div class="menu">
+            <a href="#course">课程体系</a>
+            <a href="#advantage">核心优势</a>
+            <a href="#contact">报名咨询</a>
+        </div>
     </div>
-</header>
+</nav>
 
-<section class="banner">
+<!-- 首屏 -->
+<section class="hero">
     <div class="container">
-        <h1>专业 SMT 技术培训 · 从入门到高薪就业</h1>
-        <p>贴片机编程、工艺控制、品质管理、设备维护一站式教学</p>
+        <h1>SMT专业技能培训 · 实战化教学基地</h1>
+        <p>专注贴片机编程、SMT工艺、设备维护、品质管控，培养行业紧缺技术人才</p>
     </div>
 </section>
 
-<section class="section">
+<!-- 课程 -->
+<section class="section" id="course">
     <div class="container">
-        <h2>我们的培训课程</h2>
-        <div class="card-box">
+        <div class="title">精品培训课程</div>
+        <div class="subtitle">从零基础到就业，系统化实战教学</div>
+        <div class="grid">
             <div class="card">
-                <h3>SMT基础入门班</h3>
+                <h3>🔹 SMT基础实战班</h3>
                 <ul>
-                    <li>SMT行业介绍与发展前景</li>
-                    <li>PCB、锡膏、钢网、元器件识别</li>
-                    <li>产线流程：印刷 → 贴片 → 回流焊 → AOI</li>
-                    <li>静电防护与安全规范</li>
+                    <li>SMT行业认知与职业规划</li>
+                    <li>PCB、元器件、锡膏、钢网识别</li>
+                    <li>标准产线全流程实操</li>
+                    <li>ESD静电防护与安全生产规范</li>
                 </ul>
                 <a href="#contact" class="btn">立即咨询</a>
             </div>
             <div class="card">
-                <h3>贴片机编程实战班</h3>
+                <h3>🔹 贴片机编程实战班</h3>
                 <ul>
-                    <li>富士、松下、雅马哈、三星设备操作</li>
-                    <li>GC2000、Fuji Flexa等编程软件</li>
-                    <li>料站表制作、坐标优化、生产调试</li>
-                    <li>真机实操，学会为止</li>
+                    <li>富士 / 松下 / 雅马哈 / 三星操作</li>
+                    <li>离线编程软件教学</li>
+                    <li>料站表、坐标优化、精度调试</li>
+                    <li>真机实操 + 现场故障处理</li>
                 </ul>
                 <a href="#contact" class="btn">立即报名</a>
             </div>
             <div class="card">
-                <h3>SMT工艺与品质提升班</h3>
+                <h3>🔹 SMT工艺与品质提升班</h3>
                 <ul>
-                    <li>锡膏印刷控制与钢网设计</li>
-                    <li>回流焊温度曲线设置</li>
-                    <li>常见不良分析：虚焊、假焊、立碑、连锡</li>
-                    <li>IPC标准与品质管控体系</li>
+                    <li>锡膏印刷、钢网设计优化</li>
+                    <li>回流焊温区曲线设置</li>
+                    <li>虚焊、连锡、立碑等不良分析</li>
+                    <li>IPC标准与工厂品质管控体系</li>
                 </ul>
                 <a href="#contact" class="btn">了解详情</a>
             </div>
@@ -76,41 +111,57 @@
     </div>
 </section>
 
-<section class="section">
+<!-- 优势 -->
+<section class="section" id="advantage">
     <div class="container">
-        <h2>为什么选择我们</h2>
-        <div class="card-box">
+        <div class="title">我们的核心优势</div>
+        <div class="subtitle">专注实战，让你真正掌握SMT技术</div>
+        <div class="grid">
             <div class="card">
-                <h3>🎓 实战教学为主</h3>
-                <p>真机设备实操，拒绝纯理论，学完可直接上岗。</p>
+                <h3>✅ 实战化教学</h3>
+                <p>真机设备全程实操，拒绝纯理论，学完即可上岗。</p>
             </div>
             <div class="card">
-                <h3>🔧 设备齐全</h3>
-                <p>配备贴片机、印刷机、回流焊、AOI等完整产线教学环境。</p>
+                <h3>✅ 工厂级设备</h3>
+                <p>贴片机、印刷机、回流焊、AOI完整产线教学环境。</p>
             </div>
             <div class="card">
-                <h3>💼 就业推荐</h3>
-                <p>与多家电子厂长期合作，结业推荐工作，助力高薪就业。</p>
+                <h3>✅ 推荐就业</h3>
+                <p>与多家电子制造企业合作，结业推荐就业，助力高薪发展。</p>
             </div>
             <div class="card">
-                <h3>⏱ 灵活学习</h3>
-                <p>支持全日制、周末班、晚班、一对一私教，随到随学。</p>
+                <h3>✅ 灵活学习</h3>
+                <p>全日制、周末班、晚班、一对一私教，随到随学。</p>
+            </div>
+            <div class="card">
+                <h3>✅ 资深讲师</h3>
+                <p>10年以上工厂一线技术总监授课，经验直接传授。</p>
+            </div>
+            <div class="card">
+                <h3>✅ 学会为止</h3>
+                <p>不限学习时长，技术掌握为止，长期提供技术支持。</p>
             </div>
         </div>
     </div>
 </section>
 
+<!-- 联系 -->
 <section class="contact" id="contact">
     <div class="container">
-        <h2>报名咨询</h2>
-        <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/wechat.png" alt="SMT培训" style="width:200px;">
-        <p style="font-size:18px;margin:10px 0">地址：深圳市 · SMT实训基地</p> 
+        <div class="title">报名咨询通道</div>
+        <div class="subtitle">添加微信，获取课程详情与学费</div>
+        <div class="qrcode">
+            <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/wechat.png" alt="微信咨询" style="width:200px;border-radius:8px">
+        </div>
+        <p>学习地址：深圳市 · SMT实战教学基地</p>
+        <a href="#contact" class="btn">添加微信咨询</a>
     </div>
 </section>
 
+<!-- 底部 -->
 <footer>
     <div class="container">
-        <p>© 2026 SMT实战技术培训中心 版权所有</p>
+        <p>© 2026 SMT实战技术培训中心 版权所有 | 职业技能培训 · 实战教学</p>
     </div>
 </footer>
 
