@@ -49,9 +49,19 @@
         .btn{display:inline-block;background:#1a237e;color:white;padding:14px 28px;border-radius:8px;margin-top:20px;font-weight:bold}
         .btn:hover{background:#0f1a5a}
         
-        /* 联系 */
+        /* 联系区域双列布局 */
         .contact{background:#eef2ff;padding:70px 0;text-align:center}
-        .qrcode img{width:200px;border-radius:10px;margin:20px 0}
+        .contact-flex{
+            display:flex;gap:40px;justify-content:center;align-items:flex-start;
+            flex-wrap:wrap;margin-top:20px;
+        }
+        .contact-item{text-align:center}
+        .contact-item p{
+            font-size:18px;font-weight:bold;margin-bottom:12px;color:#222
+        }
+        .contact-item img{
+            width:180px;border-radius:10px;
+        }
         
         /* 底部 */
         footer{background:#111;color:white;padding:35px 0;text-align:center;font-size:15px}
@@ -163,16 +173,27 @@
     </div>
 </section>
 
-<!-- 报名咨询 -->
+<!-- 报名咨询（双微信布局 · 对称美观） -->
 <section class="contact" id="contact">
     <div class="container">
         <div class="title">报名咨询通道</div>
-        <div class="subtitle">添加微信，获取课程表、学费与开班时间</div>
-        <div class="qrcode">
-            <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/wechat.png" alt="微信咨询">
+        <div class="subtitle">扫码咨询，获取课程表、学费与开班时间</div>
+        
+        <div class="contact-flex">
+            <!-- 左侧：微信咨询 -->
+            <div class="contact-item">
+                <p>微信咨询</p>
+                <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/wechat.png" alt="微信咨询">
+            </div>
+
+            <!-- 右侧：微信公众号（已正确放入你的图片） -->
+            <div class="contact-item">
+                <p>微信公众号</p>
+                <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/account.jpg" alt="微信公众号">
+            </div>
         </div>
-        <p style="font-size:18px; margin:10px 0">学习地址：深圳市 · SMT实战教学基地</p>
-        <a href="#contact" class="btn">添加微信咨询</a>
+
+        <p style="font-size:18px; margin-top:25px">学习地址：深圳市 · SMT实战教学基地</p>
     </div>
 </section>
 
