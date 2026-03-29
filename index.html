@@ -6,65 +6,45 @@
     <title>SMT专业技术培训 - 实战教学中心</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",sans-serif}
-        body{color:#222;background:#f8f9fa}
+        body{background:#f8f9fa;color:#222}
         a{text-decoration:none}
         
         /* 导航 */
-        nav{background:#0f1a5a;color:#fff;padding:18px 0;position:sticky;top:0;z-index:100}
+        nav{background:#1a237e;color:white;padding:18px 0;position:sticky;top:0;z-index:99}
         .nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px}
         .logo{font-size:22px;font-weight:bold}
-        .menu a{color:#fff;margin-left:24px;font-size:15px}
+        .menu a{color:white;margin-left:24px;font-size:15px}
         
-        /* 轮播大图 */
-        .slider{
-            width:100%;height:560px;
-            background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.65)),
-            url("https://i.imgur.com/CS0bD6y.gif") center center no-repeat;
-            background-size:cover;
-            display:flex;align-items:center;justify-content:center;
-            text-align:center;color:#fff
-        }
-        .slider h1{font-size:42px;margin-bottom:12px}
-        .slider p{font-size:20px;max-width:800px;margin:auto}
+        /* 头部 */
+        .header{background:#0a194e;color:white;padding:80px 0;text-align:center}
+        .header h1{font-size:40px;margin-bottom:12px}
+        .header p{font-size:19px;opacity:.95}
         
         /* 容器 */
         .container{max-width:1200px;margin:auto;padding:0 20px}
         
-        /* 标题 */
+        /* 区块 */
         .section{padding:70px 0}
         .title{text-align:center;font-size:30px;margin-bottom:10px}
         .subtitle{text-align:center;color:#666;margin-bottom:40px}
         
         /* 卡片 */
         .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
-        .card{background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05);padding:30px}
-        .card h3{font-size:20px;margin-bottom:15px;color:#0f1a5a}
+        .card{background:white;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05);padding:30px}
+        .card h3{font-size:20px;margin-bottom:15px;color:#1a237e}
         .card ul{padding-left:22px;line-height:1.9;color:#333}
-        .card p{line-height:1.7;color:#555}
+        .card p{line-height:1.8;color:#555}
         
         /* 按钮 */
-        .btn{display:inline-block;background:#1a237e;color:#fff;padding:14px 30px;border-radius:8px;margin-top:20px;font-weight:bold}
-        .btn:hover{background:#0c164d}
+        .btn{display:inline-block;background:#1a237e;color:white;padding:14px 28px;border-radius:8px;margin-top:20px;font-weight:bold}
+        .btn:hover{background:#0f1a5a}
         
-        /* 设备展示区 */
-        .equipment{
-            padding:70px 0;
-            background:linear-gradient(rgba(245,247,250,0.9),rgba(245,247,250,0.9)),
-            url("https://i.imgur.com/6vNsH6Z.gif") center center no-repeat;
-            background-size:cover
-        }
-        
-        /* 联系区 */
-        .contact{
-            padding:70px 0;text-align:center;
-            background:linear-gradient(rgba(10,25,78,0.8),rgba(26,35,126,0.9)),
-            url("https://i.imgur.com/kbXg74H.gif") center center no-repeat;
-            background-size:cover;color:#fff
-        }
+        /* 联系 */
+        .contact{background:#eef2ff;padding:70px 0;text-align:center}
         .qrcode img{width:200px;border-radius:10px;margin:20px 0}
         
         /* 底部 */
-        footer{background:#111;color:#fff;padding:35px 0;text-align:center;font-size:15px}
+        footer{background:#111;color:white;padding:35px 0;text-align:center;font-size:15px}
     </style>
 </head>
 
@@ -83,10 +63,10 @@
     </div>
 </nav>
 
-<!-- 轮播大图（SMT动态背景） -->
-<section class="slider">
+<!-- 头部 -->
+<section class="header">
     <div class="container">
-        <h1>SMT专业技能培训 · 工厂实战教学基地</h1>
+        <h1>SMT专业技能培训 · 实战化教学基地</h1>
         <p>贴片机编程 | 工艺控制 | 设备维护 | 品质管理 | 高薪就业</p>
     </div>
 </section>
@@ -147,8 +127,8 @@
     </div>
 </section>
 
-<!-- 实训设备区（SMT动态背景） -->
-<section class="equipment" id="equipment">
+<!-- 实训设备 -->
+<section class="section" id="equipment">
     <div class="container">
         <div class="title">实训设备展示</div>
         <div class="subtitle">真实工厂环境，设备齐全，学习更贴近现场</div>
@@ -161,7 +141,7 @@
     </div>
 </section>
 
-<!-- 报名咨询（SMT动态背景） -->
+<!-- 报名咨询 -->
 <section class="contact" id="contact">
     <div class="container">
         <div class="title">报名咨询通道</div>
@@ -169,8 +149,8 @@
         <div class="qrcode">
             <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/wechat.png" alt="微信咨询">
         </div>
-        <p style="font-size:18px;margin:10px 0">学习地址：深圳市 · SMT实战教学基地</p>
-        <a href="#contact" class="btn" style="background:#fff;color:#1a237e">添加微信咨询</a>
+        <p style="font-size:18px; margin:10px 0">学习地址：深圳市 · SMT实战教学基地</p>
+        <a href="#contact" class="btn">添加微信咨询</a>
     </div>
 </section>
 
