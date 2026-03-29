@@ -28,6 +28,18 @@
         .title{text-align:center;font-size:30px;margin-bottom:10px}
         .subtitle{text-align:center;color:#666;margin-bottom:40px}
         
+        /* 图片展示区（预留2个图位置） */
+        .img-row{
+            display:flex;gap:25px;justify-content:center;
+            margin-bottom:40px;flex-wrap:wrap;
+        }
+        .img-box{
+            width:480px;max-width:100%;height:280px;
+            background:#eaeef5;border-radius:10px;
+            display:flex;align-items:center;justify-content:center;
+            font-size:16px;color:#666;
+        }
+        
         /* 卡片 */
         .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
         .card{background:white;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05);padding:30px}
@@ -68,6 +80,19 @@
     <div class="container">
         <h1>SMT专业技能培训 · 实战化教学基地</h1>
         <p>贴片机编程 | 工艺控制 | 设备维护 | 品质管理 | 高薪就业</p>
+    </div>
+</section>
+
+<!-- 🔥 预留：第一张图片位置（SMT车间/环境） -->
+<section class="section">
+    <div class="container">
+        <div class="title">实训环境展示</div>
+        <div class="subtitle">真实工厂场景，设备齐全，学习更落地</div>
+        
+        <div class="img-row">
+            <div class="img-box">【预留位置1：可放 SMT车间 / 产线图片】</div>
+            <div class="img-box">【预留位置2：可放 教学现场 / 设备图片】</div>
+        </div>
     </div>
 </section>
 
