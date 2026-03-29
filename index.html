@@ -28,16 +28,14 @@
         .title{text-align:center;font-size:30px;margin-bottom:10px}
         .subtitle{text-align:center;color:#666;margin-bottom:40px}
         
-        /* 图片展示区（预留2个图位置） */
+        /* 图片展示区 */
         .img-row{
             display:flex;gap:25px;justify-content:center;
             margin-bottom:40px;flex-wrap:wrap;
         }
-        .img-box{
+        .img-row img{
             width:480px;max-width:100%;height:280px;
-            background:#eaeef5;border-radius:10px;
-            display:flex;align-items:center;justify-content:center;
-            font-size:16px;color:#666;
+            object-fit:cover;border-radius:10px;
         }
         
         /* 卡片 */
@@ -83,15 +81,15 @@
     </div>
 </section>
 
-<!-- 🔥 预留：第一张图片位置（SMT车间/环境） -->
+<!-- 实训环境展示（2张真实SMT设备图） -->
 <section class="section">
     <div class="container">
         <div class="title">实训环境展示</div>
         <div class="subtitle">真实工厂场景，设备齐全，学习更落地</div>
         
         <div class="img-row">
-            <div class="img-box">【预留位置1：可放 SMT车间 / 产线图片】</div>
-            <div class="img-box">【预留位置2：可放 教学现场 / 设备图片】</div>
+            <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/Printing.png" alt="SMT印刷机">
+            <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/FUJI.png" alt="FUJI贴片机">
         </div>
     </div>
 </section>
