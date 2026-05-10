@@ -1,280 +1,928 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMT专业技术技能分享 - 实战交流空间</title>
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",sans-serif}
-        body{background:#f8f9fa;color:#222}
-        a{text-decoration:none}
-        
-        /* 导航 */
-        nav{background:#1a237e;color:white;padding:18px 0;position:sticky;top:0;z-index:99}
-        .nav{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:0 20px}
-        .logo{font-size:22px;font-weight:bold}
-        .menu a{color:white;margin-left:24px;font-size:15px}
-        
-        /* 头部 */
-        .header{background:#0a194e;color:white;padding:80px 0;text-align:center}
-        .header h1{font-size:40px;margin-bottom:12px}
-        .header p{font-size:19px;opacity:.95}
-        .en{font-size:16px;opacity:0.8;margin-top:6px;color:#eee;}
-        
-        /* 容器 */
-        .container{max-width:1200px;margin:auto;padding:0 20px}
-        
-        /* 区块 */
-        .section{padding:70px 0}
-        .title{text-align:center;font-size:30px;margin-bottom:10px}
-        .title-en{text-align:center;font-size:18px;color:#666;margin-top:6px;}
-        .subtitle{text-align:center;color:#666;margin-bottom:40px}
-        .subtitle-en{text-align:center;color:#888;margin-top:5px;font-size:14px;}
-        
-        /* 图片展示区 */
-        .img-row{
-            display:flex;gap:25px;justify-content:center;
-            margin-bottom:40px;flex-wrap:wrap;
-        }
-        .img-row img{
-            width:480px;max-width:100%;height:280px;
-            object-fit:cover;border-radius:10px;
-        }
-        
-        /* 卡片 */
-        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
-        .card{background:white;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.05);padding:30px}
-        .card h3{font-size:20px;margin-bottom:15px;color:#1a237e}
-        .card ul{padding-left:22px;line-height:1.9;color:#333}
-        .card p{line-height:1.8;color:#555}
-        .card-en{font-size:14px;color:#666;line-height:1.7;margin-top:8px;}
-        
-        /* 按钮 */
-        .btn{display:inline-block;background:#1a237e;color:white;padding:14px 28px;border-radius:8px;margin-top:20px;font-weight:bold}
-        .btn:hover{background:#0f1a5a}
-        
-        /* 联系区域双列布局 */
-        .contact{background:#eef2ff;padding:70px 0;text-align:center}
-        .contact-flex{
-            display:flex;gap:40px;justify-content:center;align-items:flex-start;
-            flex-wrap:wrap;margin-top:20px;
-        }
-        .contact-item{text-align:center}
-        .contact-item p{
-            font-size:18px;font-weight:bold;margin-bottom:12px;color:#222
-        }
-        .contact-item-en{font-size:14px;color:#666;margin-top:5px;}
-        .contact-item img{
-            width:180px;border-radius:10px;
-        }
-        
-        /* 底部 */
-        footer{background:#111;color:white;padding:35px 0;text-align:center;font-size:15px}
-        .footer-en{font-size:13px;opacity:0.7;margin-top:5px;}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMT Tech Exchange Platform</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#06111d;
+    --bg2:#081b2b;
+    --blue:#59c3ff;
+    --cyan:#7de2ff;
+    --line:#143149;
+    --text:#dce8f7;
+    --white:#ffffff;
+    --gold:#d8b768;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:"Microsoft YaHei",sans-serif;
+    background:var(--bg);
+    color:var(--white);
+    overflow-x:hidden;
+    position:relative;
+}
+
+/* 科技网格 */
+.tech-grid{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    background:
+    linear-gradient(rgba(89,195,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89,195,255,.08) 1px, transparent 1px);
+    background-size:42px 42px;
+}
+
+/* 发光背景 */
+.glow{
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    background:
+    radial-gradient(circle at 15% 20%, rgba(89,195,255,.18), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(125,226,255,.14), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(89,195,255,.12), transparent 35%);
+}
+
+/* 动态线路 */
+.lines{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-3;
+}
+
+.lines span{
+    position:absolute;
+    display:block;
+    width:1px;
+    height:200px;
+    background:linear-gradient(to bottom, transparent, rgba(89,195,255,.55), transparent);
+    animation:move 10s linear infinite;
+}
+
+.lines span:nth-child(1){left:10%;animation-delay:0s;}
+.lines span:nth-child(2){left:25%;animation-delay:2s;}
+.lines span:nth-child(3){left:40%;animation-delay:4s;}
+.lines span:nth-child(4){left:60%;animation-delay:1s;}
+.lines span:nth-child(5){left:80%;animation-delay:3s;}
+
+@keyframes move{
+    0%{transform:translateY(-300px);}
+    100%{transform:translateY(120vh);}
+}
+
+.container{
+    width:min(1240px,92%);
+    margin:auto;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* navbar */
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+    background:rgba(4,13,22,.72);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:900;
+    background:linear-gradient(90deg,#fff,#8ad9ff,#d8b768);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.logo small{
+    display:block;
+    font-size:11px;
+    letter-spacing:2px;
+    margin-top:4px;
+}
+
+.menu{
+    display:flex;
+    gap:30px;
+}
+
+.menu a{
+    color:#d9e7f5;
+    font-size:15px;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:var(--blue);
+}
+
+/* hero */
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.hero video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.12;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to bottom, rgba(6,17,29,.5), rgba(6,17,29,.92));
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:880px;
+    padding-top:90px;
+}
+
+.badge{
+    display:inline-block;
+    padding:12px 24px;
+    border-radius:50px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(12px);
+    color:#cfe7ff;
+    margin-bottom:30px;
+}
+
+.hero h1{
+    font-size:78px;
+    line-height:1.12;
+    font-weight:900;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--blue);
+}
+
+.hero .en-title{
+    font-size:30px;
+    color:#8bd8ff;
+    margin-bottom:28px;
+}
+
+.hero p{
+    color:var(--text);
+    font-size:20px;
+    line-height:2;
+}
+
+.hero .en{
+    margin-top:12px;
+    font-size:15px;
+    color:#89a8c6;
+    line-height:1.9;
+}
+
+.btns{
+    margin-top:45px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:17px 34px;
+    border-radius:14px;
+    font-weight:bold;
+    transition:.35s;
+}
+
+.primary{
+    background:linear-gradient(135deg,#2196f3,#5fd3ff);
+    box-shadow:0 14px 40px rgba(33,150,243,.35);
+}
+
+.primary:hover{
+    transform:translateY(-5px);
+}
+
+.outline{
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.04);
+}
+
+.outline:hover{
+    background:rgba(255,255,255,.08);
+}
+
+/* section */
+.section{
+    padding:120px 0;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.title h2{
+    font-size:48px;
+    margin-bottom:10px;
+}
+
+.title .en-title{
+    color:#7edbff;
+    margin-bottom:18px;
+}
+
+.title p{
+    color:#b7cadc;
+    line-height:1.9;
+}
+
+/* cards */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.card{
+    position:relative;
+    padding:42px;
+    border-radius:30px;
+    overflow:hidden;
+    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    transition:.4s;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background:rgba(89,195,255,.12);
+    top:-120px;
+    right:-120px;
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    border-color:rgba(89,195,255,.4);
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+}
+
+.card h3{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.card .en-title{
+    color:#7fdcff;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.card ul{
+    padding-left:20px;
+    line-height:2;
+    color:#dce8f5;
+}
+
+.card p{
+    color:#d1deee;
+    line-height:2;
+}
+
+.card .en{
+    margin-top:14px;
+    color:#88a8c5;
+    line-height:1.8;
+    font-size:14px;
+}
+
+/* image showcase */
+.image-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+    gap:32px;
+}
+
+.image-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.image-card img{
+    width:100%;
+    height:380px;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.image-card:hover img{
+    transform:scale(1.08);
+}
+
+.overlay{
+    position:absolute;
+    inset:auto 0 0 0;
+    padding:30px;
+    background:linear-gradient(to top, rgba(2,8,15,.96), transparent);
+}
+
+.overlay h3{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.overlay .en{
+    color:#8ed7ff;
+}
+
+/* stats */
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:24px;
+    margin-top:70px;
+}
+
+.stat{
+    padding:42px 20px;
+    text-align:center;
+    border-radius:24px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(10px);
+}
+
+.stat h3{
+    font-size:54px;
+    color:#7fdcff;
+    margin-bottom:12px;
+}
+
+.stat p{
+    color:#d8e4f3;
+}
+
+.stat .en{
+    margin-top:8px;
+    color:#8eaac6;
+    font-size:13px;
+}
+
+/* contact */
+.contact-box{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:40px;
+}
+
+.panel{
+    padding:52px;
+    border-radius:34px;
+    background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+}
+
+.panel h2{
+    font-size:44px;
+    margin-bottom:12px;
+}
+
+.panel .en-title{
+    color:#7fdcff;
+    margin-bottom:24px;
+}
+
+.panel p{
+    line-height:2;
+    color:#d4e1f0;
+}
+
+.panel .en{
+    margin-top:12px;
+    color:#89a9c5;
+    font-size:14px;
+}
+
+.qrs{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.qr{
+    text-align:center;
+}
+
+.qr img{
+    width:190px;
+    border-radius:20px;
+    padding:8px;
+    background:white;
+}
+
+.qr p{
+    margin-top:14px;
+    font-weight:bold;
+}
+
+.qr .en{
+    margin-top:6px;
+}
+
+/* footer */
+footer{
+    padding:42px 20px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#94abc4;
+    line-height:2;
+}
+
+/* responsive */
+@media(max-width:900px){
+
+    .menu{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:50px;
+    }
+
+    .hero .en-title{
+        font-size:24px;
+    }
+
+    .contact-box{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .title h2{
+        font-size:34px;
+    }
+
+    .panel,
+    .card{
+        padding:34px;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- 导航 -->
+<div class="tech-grid"></div>
+<div class="glow"></div>
+
+<div class="lines">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
 <nav>
-    <div class="nav">
-        <div class="logo">SMT实战技术经验交流空间</div>
+    <div class="container nav">
+
+        <div class="logo">
+            SMT TECH
+            <small>PROFESSIONAL EXCHANGE PLATFORM</small>
+        </div>
+
         <div class="menu">
-            <a href="#course">课程分享</a>
+            <a href="#course">课程体系</a>
             <a href="#advantage">核心优势</a>
-            <a href="#equipment">实操设备</a>
+            <a href="#equipment">设备展示</a>
             <a href="#contact">咨询对接</a>
         </div>
+
     </div>
 </nav>
 
-<!-- 头部 -->
-<section class="header">
-    <div class="container">
-        <h1>SMT专业技能分享 · 实战化交流基地</h1>
-        <p class="en">SMT Professional Skills Sharing · Practical Exchange Base</p>
-        <p>贴片机编程 | 工艺控制 | 设备维护 | 品质管理 | 职业发展</p>
-        <p class="en">SMT Programming | Process Control | Equipment Maintenance | Quality Management | Career Development</p>
+<section class="hero">
+
+    <video autoplay muted loop playsinline>
+        <source src="https://cdn.coverr.co/videos/coverr-working-on-a-circuit-board-1560678260846?download=1080p" type="video/mp4">
+    </video>
+
+    <div class="container hero-content">
+
+        <div class="badge">
+            SMT专业技术交流平台 · SMT Professional Technology Exchange Platform
+        </div>
+
+        <h1>
+            打造未来工业级
+            <span>SMT实战技术生态</span>
+        </h1>
+
+        <div class="en-title">
+            Build A Future Industrial SMT Technology Ecosystem
+        </div>
+
+        <p>
+            聚焦贴片机编程、工艺优化、品质分析、设备维护与职业成长，
+            以真实工厂环境与资深工程师带教模式，
+            构建高端化、系统化、实战化SMT技术提升平台。
+        </p>
+
+        <div class="en">
+            Focus on SMT programming, process optimization, quality analysis,
+            equipment maintenance and career development with real industrial
+            environments and senior engineer practical training.
+        </div>
+
+        <div class="btns">
+            <a href="#contact" class="btn primary">立即咨询</a>
+            <a href="#course" class="btn outline">查看课程</a>
+        </div>
+
     </div>
+
 </section>
 
-<!-- 实操环境展示 -->
 <section class="section">
+
     <div class="container">
-        <div class="title">实操环境展示</div>
-        <div class="title-en">Practical Training Environment</div>
-        <div class="subtitle">真实工厂场景，设备齐全，学习更落地</div>
-        <div class="subtitle-en">Real factory scene, complete equipment, more practical learning</div>
-        
-        <div class="img-row">
-            <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/Printing.png" alt="SMT印刷机">
-            <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/FUJI.png" alt="FUJI贴片机">
+
+        <div class="title">
+            <h2>实操环境展示</h2>
+            <div class="en-title">Practical Training Environment</div>
+            <p>
+                高端工厂级设备环境 · 完整SMT产线 · 真实工程实践
+            </p>
         </div>
+
+        <div class="image-grid">
+
+            <div class="image-card">
+
+                <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/Printing.png">
+
+                <div class="overlay">
+                    <h3>高精度印刷工艺</h3>
+                    <div class="en">
+                        High Precision Printing Process
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="image-card">
+
+                <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/FUJI.png">
+
+                <div class="overlay">
+                    <h3>高速贴片设备</h3>
+                    <div class="en">
+                        High-Speed SMT Placement Equipment
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
+
 </section>
 
-<!-- 课程 -->
 <section class="section" id="course">
+
     <div class="container">
-        <div class="title">精品课程分享</div>
-        <div class="title-en">Premium Course Sharing</div>
-        <div class="subtitle">系统化干货分享，零基础也能快速掌握</div>
-        <div class="subtitle-en">Systematic knowledge sharing, zero basics can quickly master</div>
-        <div class="grid">
-            <div class="card">
-                <h3>🔹 SMT基础实操带教</h3>
-                <ul>
-                    <li>SMT行业认知与职业规划</li>
-                    <li>PCB、元器件、锡膏、钢网识别</li>
-                    <li>标准产线全流程实操</li>
-                    <li>ESD静电防护与安全生产规范</li>
-                </ul>
-                <div class="card-en">
-                    SMT industry cognition & career planning<br>
-                    PCB, components, solder paste, stencil recognition<br>
-                    Full-process practical operation of standard production line<br>
-                    ESD protection & safety production standards
-                </div>
-                <a href="#contact" class="btn">立即咨询</a>
-            </div>
-            <div class="card">
-                <h3>🔹 贴片机编程1对1指导</h3>
-                <ul>
-                    <li>富士 / 松下 / 雅马哈 / 三星操作</li>
-                    <li>离线编程软件教学</li>
-                    <li>料站表、坐标优化、精度调试</li>
-                    <li>真机实操 + 现场故障处理</li>
-                </ul>
-                <div class="card-en">
-                    Fuji / Panasonic / Yamaha / Samsung operation<br>
-                    Offline programming software teaching<br>
-                    Feeder setup, coordinate optimization, precision adjustment<br>
-                    Real machine practice + on-site troubleshooting
-                </div>
-                <a href="#contact" class="btn">立即对接</a>
-            </div>
-            <div class="card">
-                <h3>🔹 SMT工艺与品质提升沙龙课</h3>
-                <ul>
-                    <li>锡膏印刷、钢网设计优化</li>
-                    <li>回流焊温区曲线设置</li>
-                    <li>虚焊、连锡、立碑等不良分析</li>
-                    <li>IPC标准与工厂品质管控体系</li>
-                </ul>
-                <div class="card-en">
-                    Solder paste printing, stencil design optimization<br>
-                    Reflow oven temperature curve setting<br>
-                    Analysis of cold solder, bridging, tombstone defects<br>
-                    IPC standards & factory quality control system
-                </div>
-                <a href="#contact" class="btn">了解详情</a>
-            </div>
+
+        <div class="title">
+            <h2>精品课程体系</h2>
+            <div class="en-title">Premium Course System</div>
+            <p>
+                从基础到高级，全面提升SMT工程技术能力
+            </p>
         </div>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>SMT基础实操课程</h3>
+
+                <div class="en-title">
+                    SMT Basic Practical Training
+                </div>
+
+                <ul>
+                    <li>SMT全流程认知与工艺理解</li>
+                    <li>PCB、元器件与锡膏识别</li>
+                    <li>标准生产线操作规范</li>
+                    <li>ESD与现场安全管理</li>
+                </ul>
+
+                <div class="en">
+                    SMT production process understanding,
+                    PCB and component recognition,
+                    line operation and ESD safety management.
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <h3>贴片机编程专项</h3>
+
+                <div class="en-title">
+                    SMT Machine Programming Training
+                </div>
+
+                <ul>
+                    <li>FUJI / Panasonic / Yamaha 编程</li>
+                    <li>离线编程软件实战</li>
+                    <li>坐标优化与精度校正</li>
+                    <li>故障分析与现场调机</li>
+                </ul>
+
+                <div class="en">
+                    Offline programming, coordinate optimization,
+                    precision calibration and troubleshooting guidance.
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <h3>工艺与品质提升</h3>
+
+                <div class="en-title">
+                    Process & Quality Improvement
+                </div>
+
+                <ul>
+                    <li>钢网设计与印刷优化</li>
+                    <li>回流焊温区曲线分析</li>
+                    <li>立碑、虚焊、连锡不良解析</li>
+                    <li>IPC标准与品质体系建设</li>
+                </ul>
+
+                <div class="en">
+                    Reflow profile analysis, stencil optimization,
+                    SMT defect analysis and IPC quality system guidance.
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                <h3>10+</h3>
+                <p>资深工程经验</p>
+                <div class="en">Senior Engineering Experience</div>
+            </div>
+
+            <div class="stat">
+                <h3>1000+</h3>
+                <p>实战案例积累</p>
+                <div class="en">Practical Engineering Cases</div>
+            </div>
+
+            <div class="stat">
+                <h3>1对1</h3>
+                <p>定制化辅导</p>
+                <div class="en">Customized Guidance</div>
+            </div>
+
+            <div class="stat">
+                <h3>长期</h3>
+                <p>技术支持服务</p>
+                <div class="en">Long-Term Technical Support</div>
+            </div>
+
+        </div>
+
     </div>
+
 </section>
 
-<!-- 优势 -->
 <section class="section" id="advantage">
+
     <div class="container">
-        <div class="title">我们的核心优势</div>
-        <div class="title-en">Our Core Advantages</div>
-        <div class="subtitle">实操带教，陪伴学习，助力职业发展</div>
-        <div class="subtitle-en">Practical guidance, accompanied learning, career support</div>
+
+        <div class="title">
+            <h2>核心竞争优势</h2>
+            <div class="en-title">Core Competitive Advantages</div>
+            <p>
+                工厂级实战教学 · 高端技术生态 · 长期职业成长支持
+            </p>
+        </div>
+
         <div class="grid">
+
             <div class="card">
-                <h3>✅ 实战化带教</h3>
-                <p>真机设备全程实操，拒绝纯理论，学完即可上岗。</p>
-                <div class="card-en">Full operation on real equipment, no pure theory, ready for post after learning.</div>
+
+                <h3>工厂级实战环境</h3>
+
+                <div class="en-title">
+                    Factory-Level Practical Environment
+                </div>
+
+                <p>
+                    真机设备、真实工艺与真实案例教学，
+                    强调现场问题分析与工程解决能力。
+                </p>
+
+                <div class="en">
+                    Real industrial equipment and engineering scenarios
+                    focused on practical problem-solving capabilities.
+                </div>
+
             </div>
+
             <div class="card">
-                <h3>✅ 工厂级设备</h3>
-                <p>贴片机、印刷机、回流焊、AOI完整产线交流环境。</p>
-                <div class="card-en">Complete production line environment: mounter, printer, reflow, AOI.</div>
+
+                <h3>资深技术团队</h3>
+
+                <div class="en-title">
+                    Senior Technical Team
+                </div>
+
+                <p>
+                    10年以上SMT工程与工厂管理经验，
+                    覆盖设备、工艺、品质与生产管理方向。
+                </p>
+
+                <div class="en">
+                    More than 10 years of SMT engineering,
+                    manufacturing and management experience.
+                </div>
+
             </div>
+
             <div class="card">
-                <h3>✅ 职业对接</h3>
-                <p>与多家电子制造企业合作，结业推荐职业机会。</p>
-                <div class="card-en">Cooperate with many electronics manufacturers, provide job referrals.</div>
+
+                <h3>职业成长支持</h3>
+
+                <div class="en-title">
+                    Career Growth Support
+                </div>
+
+                <p>
+                    提供长期学习交流、职业规划、
+                    技术提升与行业经验共享支持。
+                </p>
+
+                <div class="en">
+                    Long-term learning support, career planning
+                    and technical growth assistance.
+                </div>
+
             </div>
-            <div class="card">
-                <h3>✅ 灵活学习</h3>
-                <p>全日制、周末场、晚间场、1对1私教定制，随到随学。</p>
-                <div class="card-en">Flexible schedules: full-time, weekend, evening, 1-on-1 customized learning.</div>
-            </div>
-            <div class="card">
-                <h3>✅ 资深技术顾问</h3>
-                <p>10年以上工厂技术总监全程带教，经验直接传授。</p>
-                <div class="card-en">Senior technical director with 10+ years experience, direct guidance.</div>
-            </div>
-            <div class="card">
-                <h3>✅ 陪伴学习</h3>
-                <p>不限学习时长，长期提供技术支持与经验交流。</p>
-                <div class="card-en">Unlimited learning period, long-term technical support & experience exchange.</div>
-            </div>
+
         </div>
+
     </div>
+
 </section>
 
-<!-- 实操设备 -->
-<section class="section" id="equipment">
+<section class="section" id="contact">
+
     <div class="container">
-        <div class="title">实操设备展示</div>
-        <div class="title-en">Practical Equipment Display</div>
-        <div class="subtitle">真实工厂环境，设备齐全，学习更贴近现场</div>
-        <div class="subtitle-en">Real factory environment, complete equipment, closer to actual production</div>
-        <div class="grid">
-            <div class="card">
-                <h3>🔹 全自动印刷机</h3>
-                <p>锡膏印刷工艺、钢网调试、品质控制实操带教。</p>
-                <div class="card-en">Solder paste printing process, stencil adjustment, quality control guidance.</div>
+
+        <div class="contact-box">
+
+            <div class="panel">
+
+                <h2>咨询对接通道</h2>
+
+                <div class="en-title">
+                    Consultation & Communication Channel
+                </div>
+
+                <p>
+                    欢迎咨询SMT课程安排、工程技术交流、
+                    职业成长方向与工厂实战技能提升方案，
+                    支持1对1高端技术辅导。
+                </p>
+
+                <div class="en">
+                    Welcome to consult about SMT training,
+                    engineering exchange and professional development.
+                </div>
+
+                <div class="btns">
+                    <a href="#" class="btn primary">预约交流</a>
+                    <a href="#" class="btn outline">获取课程表</a>
+                </div>
+
             </div>
-            <div class="card">
-                <h3>🔹 高速贴片机</h3>
-                <p>富士、松下、雅马哈、三星等主流机型专属辅导。</p>
-                <div class="card-en">Exclusive guidance for Fuji, Panasonic, Yamaha, Samsung machines.</div>
+
+            <div class="panel">
+
+                <div class="qrs">
+
+                    <div class="qr">
+
+                        <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/wechat.png">
+
+                        <p>微信咨询</p>
+
+                        <div class="en">
+                            WeChat Consultation
+                        </div>
+
+                    </div>
+
+                    <div class="qr">
+
+                        <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/account.jpg">
+
+                        <p>微信公众号</p>
+
+                        <div class="en">
+                            Official Account
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-            <div class="card">
-                <h3>🔹 回流焊炉</h3>
-                <p>温区曲线设置、温度测试、焊接品质优化干货分享。</p>
-                <div class="card-en">Temperature curve setting, testing, soldering quality optimization sharing.</div>
-            </div>
+
         </div>
+
     </div>
+
 </section>
 
-<!-- 咨询对接 -->
-<section class="contact" id="contact">
-    <div class="container">
-        <div class="title">咨询对接通道</div>
-        <div class="title-en">Consultation & Contact</div>
-        <div class="subtitle">扫码咨询，获取课程表、费用与交流场次安排</div>
-        <div class="subtitle-en">Scan code for consultation, get schedule, fee & arrangement</div>
-        
-        <div class="contact-flex">
-            <div class="contact-item">
-                <p>微信咨询</p>
-                <div class="contact-item-en">WeChat Consultation</div>
-                <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/wechat.png" alt="微信咨询">
-            </div>
-            <div class="contact-item">
-                <p>微信公众号</p>
-                <div class="contact-item-en">WeChat Official Account</div>
-                <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/account.jpg" alt="微信公众号">
-            </div>
-        </div>
-
-        <p style="font-size:18px; margin-top:25px">交流地址：深圳市 · SMT实战交流空间</p>
-        <p style="font-size:14px;color:#666;margin-top:5px;">Address: Shenzhen · SMT Practical Exchange Space</p>
-    </div>
-</section>
-
-<!-- 底部 -->
 <footer>
-    <div class="container">
-        <p>© 2026 SMT实战技术经验交流空间 版权所有 | 技能分享 · 实操带教交流基地</p>
-        <p class="footer-en">© 2026 SMT Practical Technology Exchange Space. All Rights Reserved. | Skills Sharing · Practical Guidance Base</p>
+
+    <div>
+        © 2026 SMT实战技术经验交流平台 版权所有
     </div>
+
+    <div>
+        © 2026 SMT Professional Practical Technology Exchange Platform
+    </div>
+
 </footer>
 
 </body>
