@@ -19,6 +19,7 @@
         .header{background:#0a194e;color:white;padding:80px 0;text-align:center}
         .header h1{font-size:40px;margin-bottom:12px}
         .header p{font-size:19px;opacity:.95}
+        .en{font-size:16px;opacity:0.8;margin-top:6px;color:#eee;}
         
         /* 容器 */
         .container{max-width:1200px;margin:auto;padding:0 20px}
@@ -26,7 +27,9 @@
         /* 区块 */
         .section{padding:70px 0}
         .title{text-align:center;font-size:30px;margin-bottom:10px}
+        .title-en{text-align:center;font-size:18px;color:#666;margin-top:6px;}
         .subtitle{text-align:center;color:#666;margin-bottom:40px}
+        .subtitle-en{text-align:center;color:#888;margin-top:5px;font-size:14px;}
         
         /* 图片展示区 */
         .img-row{
@@ -44,6 +47,7 @@
         .card h3{font-size:20px;margin-bottom:15px;color:#1a237e}
         .card ul{padding-left:22px;line-height:1.9;color:#333}
         .card p{line-height:1.8;color:#555}
+        .card-en{font-size:14px;color:#666;line-height:1.7;margin-top:8px;}
         
         /* 按钮 */
         .btn{display:inline-block;background:#1a237e;color:white;padding:14px 28px;border-radius:8px;margin-top:20px;font-weight:bold}
@@ -59,12 +63,14 @@
         .contact-item p{
             font-size:18px;font-weight:bold;margin-bottom:12px;color:#222
         }
+        .contact-item-en{font-size:14px;color:#666;margin-top:5px;}
         .contact-item img{
             width:180px;border-radius:10px;
         }
         
         /* 底部 */
         footer{background:#111;color:white;padding:35px 0;text-align:center;font-size:15px}
+        .footer-en{font-size:13px;opacity:0.7;margin-top:5px;}
     </style>
 </head>
 
@@ -87,15 +93,19 @@
 <section class="header">
     <div class="container">
         <h1>SMT专业技能分享 · 实战化交流基地</h1>
+        <p class="en">SMT Professional Skills Sharing · Practical Exchange Base</p>
         <p>贴片机编程 | 工艺控制 | 设备维护 | 品质管理 | 职业发展</p>
+        <p class="en">SMT Programming | Process Control | Equipment Maintenance | Quality Management | Career Development</p>
     </div>
 </section>
 
-<!-- 实操环境展示（2张真实SMT设备图） -->
+<!-- 实操环境展示 -->
 <section class="section">
     <div class="container">
         <div class="title">实操环境展示</div>
+        <div class="title-en">Practical Training Environment</div>
         <div class="subtitle">真实工厂场景，设备齐全，学习更落地</div>
+        <div class="subtitle-en">Real factory scene, complete equipment, more practical learning</div>
         
         <div class="img-row">
             <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/Printing.png" alt="SMT印刷机">
@@ -108,7 +118,9 @@
 <section class="section" id="course">
     <div class="container">
         <div class="title">精品课程分享</div>
+        <div class="title-en">Premium Course Sharing</div>
         <div class="subtitle">系统化干货分享，零基础也能快速掌握</div>
+        <div class="subtitle-en">Systematic knowledge sharing, zero basics can quickly master</div>
         <div class="grid">
             <div class="card">
                 <h3>🔹 SMT基础实操带教</h3>
@@ -118,6 +130,12 @@
                     <li>标准产线全流程实操</li>
                     <li>ESD静电防护与安全生产规范</li>
                 </ul>
+                <div class="card-en">
+                    SMT industry cognition & career planning<br>
+                    PCB, components, solder paste, stencil recognition<br>
+                    Full-process practical operation of standard production line<br>
+                    ESD protection & safety production standards
+                </div>
                 <a href="#contact" class="btn">立即咨询</a>
             </div>
             <div class="card">
@@ -128,6 +146,12 @@
                     <li>料站表、坐标优化、精度调试</li>
                     <li>真机实操 + 现场故障处理</li>
                 </ul>
+                <div class="card-en">
+                    Fuji / Panasonic / Yamaha / Samsung operation<br>
+                    Offline programming software teaching<br>
+                    Feeder setup, coordinate optimization, precision adjustment<br>
+                    Real machine practice + on-site troubleshooting
+                </div>
                 <a href="#contact" class="btn">立即对接</a>
             </div>
             <div class="card">
@@ -138,6 +162,12 @@
                     <li>虚焊、连锡、立碑等不良分析</li>
                     <li>IPC标准与工厂品质管控体系</li>
                 </ul>
+                <div class="card-en">
+                    Solder paste printing, stencil design optimization<br>
+                    Reflow oven temperature curve setting<br>
+                    Analysis of cold solder, bridging, tombstone defects<br>
+                    IPC standards & factory quality control system
+                </div>
                 <a href="#contact" class="btn">了解详情</a>
             </div>
         </div>
@@ -148,14 +178,40 @@
 <section class="section" id="advantage">
     <div class="container">
         <div class="title">我们的核心优势</div>
+        <div class="title-en">Our Core Advantages</div>
         <div class="subtitle">实操带教，陪伴学习，助力职业发展</div>
+        <div class="subtitle-en">Practical guidance, accompanied learning, career support</div>
         <div class="grid">
-            <div class="card"><h3>✅ 实战化带教</h3><p>真机设备全程实操，拒绝纯理论，学完即可上岗。</p></div>
-            <div class="card"><h3>✅ 工厂级设备</h3><p>贴片机、印刷机、回流焊、AOI完整产线交流环境。</p></div>
-            <div class="card"><h3>✅ 职业对接</h3><p>与多家电子制造企业合作，结业推荐职业机会。</p></div>
-            <div class="card"><h3>✅ 灵活学习</h3><p>全日制、周末场、晚间场、1对1私教定制，随到随学。</p></div>
-            <div class="card"><h3>✅ 资深技术顾问</h3><p>10年以上工厂技术总监全程带教，经验直接传授。</p></div>
-            <div class="card"><h3>✅ 陪伴学习</h3><p>不限学习时长，长期提供技术支持与经验交流。</p></div>
+            <div class="card">
+                <h3>✅ 实战化带教</h3>
+                <p>真机设备全程实操，拒绝纯理论，学完即可上岗。</p>
+                <div class="card-en">Full operation on real equipment, no pure theory, ready for post after learning.</div>
+            </div>
+            <div class="card">
+                <h3>✅ 工厂级设备</h3>
+                <p>贴片机、印刷机、回流焊、AOI完整产线交流环境。</p>
+                <div class="card-en">Complete production line environment: mounter, printer, reflow, AOI.</div>
+            </div>
+            <div class="card">
+                <h3>✅ 职业对接</h3>
+                <p>与多家电子制造企业合作，结业推荐职业机会。</p>
+                <div class="card-en">Cooperate with many electronics manufacturers, provide job referrals.</div>
+            </div>
+            <div class="card">
+                <h3>✅ 灵活学习</h3>
+                <p>全日制、周末场、晚间场、1对1私教定制，随到随学。</p>
+                <div class="card-en">Flexible schedules: full-time, weekend, evening, 1-on-1 customized learning.</div>
+            </div>
+            <div class="card">
+                <h3>✅ 资深技术顾问</h3>
+                <p>10年以上工厂技术总监全程带教，经验直接传授。</p>
+                <div class="card-en">Senior technical director with 10+ years experience, direct guidance.</div>
+            </div>
+            <div class="card">
+                <h3>✅ 陪伴学习</h3>
+                <p>不限学习时长，长期提供技术支持与经验交流。</p>
+                <div class="card-en">Unlimited learning period, long-term technical support & experience exchange.</div>
+            </div>
         </div>
     </div>
 </section>
@@ -164,36 +220,52 @@
 <section class="section" id="equipment">
     <div class="container">
         <div class="title">实操设备展示</div>
+        <div class="title-en">Practical Equipment Display</div>
         <div class="subtitle">真实工厂环境，设备齐全，学习更贴近现场</div>
+        <div class="subtitle-en">Real factory environment, complete equipment, closer to actual production</div>
         <div class="grid">
-            <div class="card"><h3>🔹 全自动印刷机</h3><p>锡膏印刷工艺、钢网调试、品质控制实操带教。</p></div>
-            <div class="card"><h3>🔹 高速贴片机</h3><p>富士、松下、雅马哈、三星等主流机型专属辅导。</p></div>
-            <div class="card"><h3>🔹 回流焊炉</h3><p>温区曲线设置、温度测试、焊接品质优化干货分享。</p></div>
+            <div class="card">
+                <h3>🔹 全自动印刷机</h3>
+                <p>锡膏印刷工艺、钢网调试、品质控制实操带教。</p>
+                <div class="card-en">Solder paste printing process, stencil adjustment, quality control guidance.</div>
+            </div>
+            <div class="card">
+                <h3>🔹 高速贴片机</h3>
+                <p>富士、松下、雅马哈、三星等主流机型专属辅导。</p>
+                <div class="card-en">Exclusive guidance for Fuji, Panasonic, Yamaha, Samsung machines.</div>
+            </div>
+            <div class="card">
+                <h3>🔹 回流焊炉</h3>
+                <p>温区曲线设置、温度测试、焊接品质优化干货分享。</p>
+                <div class="card-en">Temperature curve setting, testing, soldering quality optimization sharing.</div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- 咨询对接（双微信布局 · 对称美观） -->
+<!-- 咨询对接 -->
 <section class="contact" id="contact">
     <div class="container">
         <div class="title">咨询对接通道</div>
+        <div class="title-en">Consultation & Contact</div>
         <div class="subtitle">扫码咨询，获取课程表、费用与交流场次安排</div>
+        <div class="subtitle-en">Scan code for consultation, get schedule, fee & arrangement</div>
         
         <div class="contact-flex">
-            <!-- 左侧：微信咨询 -->
             <div class="contact-item">
                 <p>微信咨询</p>
+                <div class="contact-item-en">WeChat Consultation</div>
                 <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/wechat.png" alt="微信咨询">
             </div>
-
-            <!-- 右侧：微信公众号（已正确放入你的图片） -->
             <div class="contact-item">
                 <p>微信公众号</p>
+                <div class="contact-item-en">WeChat Official Account</div>
                 <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/account.jpg" alt="微信公众号">
             </div>
         </div>
 
         <p style="font-size:18px; margin-top:25px">交流地址：深圳市 · SMT实战交流空间</p>
+        <p style="font-size:14px;color:#666;margin-top:5px;">Address: Shenzhen · SMT Practical Exchange Space</p>
     </div>
 </section>
 
@@ -201,6 +273,7 @@
 <footer>
     <div class="container">
         <p>© 2026 SMT实战技术经验交流空间 版权所有 | 技能分享 · 实操带教交流基地</p>
+        <p class="footer-en">© 2026 SMT Practical Technology Exchange Space. All Rights Reserved. | Skills Sharing · Practical Guidance Base</p>
     </div>
 </footer>
 
