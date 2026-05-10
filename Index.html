@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SMT高端技术交流平台 | SMT Professional Exchange Platform</title>
+<title>SMT Tech Exchange Platform</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <style>
 
@@ -14,14 +16,14 @@
 }
 
 :root{
-    --bg:#061320;
-    --bg2:#0a1f33;
-    --blue:#58b6ff;
-    --cyan:#6ee7ff;
-    --line:#17324a;
-    --gold:#d6b25e;
-    --white:#f4f8ff;
-    --text:#c7d6ea;
+    --bg:#06111d;
+    --bg2:#081b2b;
+    --blue:#59c3ff;
+    --cyan:#7de2ff;
+    --line:#143149;
+    --text:#dce8f7;
+    --white:#ffffff;
+    --gold:#d8b768;
 }
 
 html{
@@ -30,37 +32,65 @@ html{
 
 body{
     font-family:"Microsoft YaHei",sans-serif;
+    background:var(--bg);
     color:var(--white);
     overflow-x:hidden;
-    background:
-        linear-gradient(rgba(4,13,22,.92),rgba(4,13,22,.96)),
-        url("https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920&auto=format&fit=crop") center/cover fixed;
     position:relative;
 }
 
-/* 科技线路背景 */
-body::before{
-    content:"";
+/* 科技网格 */
+.tech-grid{
     position:fixed;
     inset:0;
-    background-image:
-        linear-gradient(rgba(88,182,255,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(88,182,255,.08) 1px, transparent 1px);
-    background-size:40px 40px;
-    pointer-events:none;
-    z-index:-2;
+    z-index:-5;
+    background:
+    linear-gradient(rgba(89,195,255,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89,195,255,.08) 1px, transparent 1px);
+    background-size:42px 42px;
 }
 
-body::after{
-    content:"";
+/* 发光背景 */
+.glow{
     position:fixed;
     inset:0;
+    z-index:-4;
     background:
-        radial-gradient(circle at 20% 20%, rgba(88,182,255,.18), transparent 30%),
-        radial-gradient(circle at 80% 10%, rgba(110,231,255,.12), transparent 30%),
-        radial-gradient(circle at 50% 90%, rgba(88,182,255,.10), transparent 35%);
-    z-index:-1;
-    pointer-events:none;
+    radial-gradient(circle at 15% 20%, rgba(89,195,255,.18), transparent 28%),
+    radial-gradient(circle at 85% 10%, rgba(125,226,255,.14), transparent 30%),
+    radial-gradient(circle at 50% 80%, rgba(89,195,255,.12), transparent 35%);
+}
+
+/* 动态线路 */
+.lines{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-3;
+}
+
+.lines span{
+    position:absolute;
+    display:block;
+    width:1px;
+    height:200px;
+    background:linear-gradient(to bottom, transparent, rgba(89,195,255,.55), transparent);
+    animation:move 10s linear infinite;
+}
+
+.lines span:nth-child(1){left:10%;animation-delay:0s;}
+.lines span:nth-child(2){left:25%;animation-delay:2s;}
+.lines span:nth-child(3){left:40%;animation-delay:4s;}
+.lines span:nth-child(4){left:60%;animation-delay:1s;}
+.lines span:nth-child(5){left:80%;animation-delay:3s;}
+
+@keyframes move{
+    0%{transform:translateY(-300px);}
+    100%{transform:translateY(120vh);}
+}
+
+.container{
+    width:min(1240px,92%);
+    margin:auto;
 }
 
 a{
@@ -68,19 +98,14 @@ a{
     color:inherit;
 }
 
-.container{
-    width:min(1220px,92%);
-    margin:auto;
-}
-
-/* 顶部导航 */
+/* navbar */
 nav{
     position:fixed;
-    width:100%;
     top:0;
+    width:100%;
     z-index:999;
-    backdrop-filter:blur(20px);
-    background:rgba(5,16,28,.72);
+    background:rgba(4,13,22,.72);
+    backdrop-filter:blur(18px);
     border-bottom:1px solid rgba(255,255,255,.08);
 }
 
@@ -88,14 +113,13 @@ nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px 0;
+    padding:18px 0;
 }
 
 .logo{
-    font-size:26px;
-    font-weight:800;
-    letter-spacing:1px;
-    background:linear-gradient(90deg,#ffffff,#8fd7ff,#d6b25e);
+    font-size:28px;
+    font-weight:900;
+    background:linear-gradient(90deg,#fff,#8ad9ff,#d8b768);
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
@@ -104,7 +128,7 @@ nav{
     display:block;
     font-size:11px;
     letter-spacing:2px;
-    margin-top:3px;
+    margin-top:4px;
 }
 
 .menu{
@@ -114,147 +138,225 @@ nav{
 
 .menu a{
     color:#d9e7f5;
-    transition:.3s;
     font-size:15px;
+    transition:.3s;
 }
 
 .menu a:hover{
-    color:#7fd0ff;
+    color:var(--blue);
 }
 
-/* Hero */
+/* hero */
 .hero{
     min-height:100vh;
+    position:relative;
     display:flex;
     align-items:center;
-    position:relative;
+    overflow:hidden;
+}
+
+.hero video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:.12;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to bottom, rgba(6,17,29,.5), rgba(6,17,29,.92));
 }
 
 .hero-content{
-    max-width:860px;
+    position:relative;
+    z-index:2;
+    max-width:880px;
     padding-top:90px;
 }
 
-.tag{
+.badge{
     display:inline-block;
-    padding:12px 22px;
+    padding:12px 24px;
     border-radius:50px;
     border:1px solid rgba(255,255,255,.12);
     background:rgba(255,255,255,.05);
     backdrop-filter:blur(12px);
-    color:#cfe8ff;
-    font-size:14px;
-    margin-bottom:28px;
+    color:#cfe7ff;
+    margin-bottom:30px;
 }
 
 .hero h1{
-    font-size:72px;
-    line-height:1.15;
-    margin-bottom:18px;
+    font-size:78px;
+    line-height:1.12;
     font-weight:900;
+    margin-bottom:20px;
 }
 
 .hero h1 span{
-    color:#71c7ff;
+    color:var(--blue);
 }
 
 .hero .en-title{
     font-size:30px;
-    color:#cfe7ff;
+    color:#8bd8ff;
     margin-bottom:28px;
-    letter-spacing:1px;
 }
 
 .hero p{
+    color:var(--text);
     font-size:20px;
     line-height:2;
-    color:var(--text);
 }
 
 .hero .en{
     margin-top:12px;
     font-size:15px;
-    color:#93aeca;
+    color:#89a8c6;
     line-height:1.9;
 }
 
-.hero-btns{
-    margin-top:42px;
+.btns{
+    margin-top:45px;
     display:flex;
     gap:20px;
     flex-wrap:wrap;
 }
 
 .btn{
-    padding:16px 34px;
+    padding:17px 34px;
     border-radius:14px;
-    font-weight:700;
+    font-weight:bold;
     transition:.35s;
 }
 
-.btn-primary{
-    background:linear-gradient(135deg,#1d8fff,#58b6ff);
-    box-shadow:0 14px 40px rgba(39,151,255,.35);
+.primary{
+    background:linear-gradient(135deg,#2196f3,#5fd3ff);
+    box-shadow:0 14px 40px rgba(33,150,243,.35);
 }
 
-.btn-primary:hover{
+.primary:hover{
     transform:translateY(-5px);
 }
 
-.btn-outline{
+.outline{
     border:1px solid rgba(255,255,255,.12);
     background:rgba(255,255,255,.04);
 }
 
-.btn-outline:hover{
+.outline:hover{
     background:rgba(255,255,255,.08);
 }
 
-/* 通用 section */
+/* section */
 .section{
     padding:120px 0;
 }
 
-.section-title{
+.title{
     text-align:center;
     margin-bottom:70px;
 }
 
-.section-title h2{
-    font-size:44px;
-    margin-bottom:12px;
+.title h2{
+    font-size:48px;
+    margin-bottom:10px;
 }
 
-.section-title .en-title{
-    font-size:18px;
-    color:#7fcfff;
+.title .en-title{
+    color:#7edbff;
     margin-bottom:18px;
 }
 
-.section-title p{
-    color:#b4c7db;
+.title p{
+    color:#b7cadc;
     line-height:1.9;
 }
 
-/* 图片 */
-.image-grid{
+/* cards */
+.grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
     gap:30px;
 }
 
-.image-card{
-    overflow:hidden;
-    border-radius:28px;
-    border:1px solid rgba(255,255,255,.08);
-    background:rgba(255,255,255,.04);
-    backdrop-filter:blur(14px);
+.card{
     position:relative;
+    padding:42px;
+    border-radius:30px;
+    overflow:hidden;
+    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    transition:.4s;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    width:240px;
+    height:240px;
+    border-radius:50%;
+    background:rgba(89,195,255,.12);
+    top:-120px;
+    right:-120px;
+}
+
+.card:hover{
+    transform:translateY(-12px);
+    border-color:rgba(89,195,255,.4);
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+}
+
+.card h3{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.card .en-title{
+    color:#7fdcff;
+    margin-bottom:20px;
+    font-size:14px;
+}
+
+.card ul{
+    padding-left:20px;
+    line-height:2;
+    color:#dce8f5;
+}
+
+.card p{
+    color:#d1deee;
+    line-height:2;
+}
+
+.card .en{
+    margin-top:14px;
+    color:#88a8c5;
+    line-height:1.8;
+    font-size:14px;
+}
+
+/* image showcase */
+.image-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+    gap:32px;
+}
+
+.image-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.08);
 }
 
 .image-card img{
     width:100%;
-    height:360px;
+    height:380px;
     object-fit:cover;
     transition:.6s;
 }
@@ -266,122 +368,53 @@ nav{
 .overlay{
     position:absolute;
     inset:auto 0 0 0;
-    padding:28px;
-    background:linear-gradient(to top, rgba(2,8,15,.95), transparent);
+    padding:30px;
+    background:linear-gradient(to top, rgba(2,8,15,.96), transparent);
 }
 
 .overlay h3{
-    font-size:26px;
+    font-size:28px;
     margin-bottom:8px;
 }
 
 .overlay .en{
-    color:#91cfff;
-    font-size:14px;
+    color:#8ed7ff;
 }
 
-/* 卡片 */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:30px;
-}
-
-.card{
-    padding:40px;
-    border-radius:28px;
-    background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-    border:1px solid rgba(255,255,255,.08);
-    backdrop-filter:blur(14px);
-    transition:.4s;
-    position:relative;
-    overflow:hidden;
-}
-
-.card::before{
-    content:"";
-    position:absolute;
-    width:220px;
-    height:220px;
-    background:rgba(88,182,255,.12);
-    border-radius:50%;
-    top:-120px;
-    right:-120px;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-    border-color:rgba(88,182,255,.4);
-    box-shadow:0 20px 50px rgba(0,0,0,.4);
-}
-
-.card h3{
-    font-size:25px;
-    margin-bottom:20px;
-}
-
-.card .en-title{
-    color:#7ecfff;
-    font-size:14px;
-    margin-bottom:18px;
-}
-
-.card ul{
-    padding-left:20px;
-    line-height:2;
-    color:#d7e4f4;
-}
-
-.card p{
-    color:#c9d7e8;
-    line-height:2;
-}
-
-.card .en{
-    margin-top:14px;
-    font-size:14px;
-    color:#89a9c5;
-    line-height:1.8;
-}
-
-/* 数据 */
+/* stats */
 .stats{
-    margin-top:70px;
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:24px;
+    margin-top:70px;
 }
 
 .stat{
-    text-align:center;
     padding:42px 20px;
+    text-align:center;
     border-radius:24px;
     background:rgba(255,255,255,.04);
     border:1px solid rgba(255,255,255,.08);
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(10px);
 }
 
 .stat h3{
-    font-size:52px;
-    color:#72cfff;
+    font-size:54px;
+    color:#7fdcff;
     margin-bottom:12px;
 }
 
 .stat p{
-    color:#c9d6e8;
+    color:#d8e4f3;
 }
 
 .stat .en{
     margin-top:8px;
+    color:#8eaac6;
     font-size:13px;
-    color:#88a8c6;
 }
 
-/* 联系 */
-.contact{
-    padding:120px 0;
-}
-
+/* contact */
 .contact-box{
     display:grid;
     grid-template-columns:1.1fr .9fr;
@@ -389,37 +422,37 @@ nav{
 }
 
 .panel{
-    border-radius:32px;
-    padding:50px;
+    padding:52px;
+    border-radius:34px;
     background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
     border:1px solid rgba(255,255,255,.08);
-    backdrop-filter:blur(16px);
+    backdrop-filter:blur(18px);
 }
 
 .panel h2{
-    font-size:42px;
-    margin-bottom:16px;
+    font-size:44px;
+    margin-bottom:12px;
 }
 
 .panel .en-title{
-    color:#7ecfff;
+    color:#7fdcff;
     margin-bottom:24px;
 }
 
 .panel p{
     line-height:2;
-    color:#cad9eb;
+    color:#d4e1f0;
 }
 
 .panel .en{
     margin-top:12px;
+    color:#89a9c5;
     font-size:14px;
-    color:#89a8c6;
 }
 
-.qr-wrap{
+.qrs{
     display:flex;
-    gap:24px;
+    gap:28px;
     flex-wrap:wrap;
     margin-top:30px;
 }
@@ -431,8 +464,8 @@ nav{
 .qr img{
     width:190px;
     border-radius:20px;
-    background:white;
     padding:8px;
+    background:white;
 }
 
 .qr p{
@@ -446,14 +479,14 @@ nav{
 
 /* footer */
 footer{
-    padding:40px 20px;
-    border-top:1px solid rgba(255,255,255,.08);
+    padding:42px 20px;
     text-align:center;
-    color:#9cb4cf;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:#94abc4;
     line-height:2;
 }
 
-/* 响应式 */
+/* responsive */
 @media(max-width:900px){
 
     .menu{
@@ -461,11 +494,11 @@ footer{
     }
 
     .hero h1{
-        font-size:48px;
+        font-size:50px;
     }
 
     .hero .en-title{
-        font-size:22px;
+        font-size:24px;
     }
 
     .contact-box{
@@ -476,23 +509,20 @@ footer{
 @media(max-width:600px){
 
     .hero h1{
-        font-size:38px;
+        font-size:40px;
     }
 
     .hero p{
         font-size:16px;
     }
 
-    .section-title h2{
+    .title h2{
         font-size:34px;
     }
 
-    .panel{
-        padding:34px;
-    }
-
+    .panel,
     .card{
-        padding:32px;
+        padding:34px;
     }
 }
 
@@ -501,12 +531,23 @@ footer{
 
 <body>
 
+<div class="tech-grid"></div>
+<div class="glow"></div>
+
+<div class="lines">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
 <nav>
     <div class="container nav">
 
         <div class="logo">
-            SMT TECH EXCHANGE
-            <small>PROFESSIONAL PRACTICAL TRAINING PLATFORM</small>
+            SMT TECH
+            <small>PROFESSIONAL EXCHANGE PLATFORM</small>
         </div>
 
         <div class="menu">
@@ -521,36 +562,40 @@ footer{
 
 <section class="hero">
 
+    <video autoplay muted loop playsinline>
+        <source src="https://cdn.coverr.co/videos/coverr-working-on-a-circuit-board-1560678260846?download=1080p" type="video/mp4">
+    </video>
+
     <div class="container hero-content">
 
-        <div class="tag">
-            SMT专业技术交流平台 · SMT Professional Practical Exchange Platform
+        <div class="badge">
+            SMT专业技术交流平台 · SMT Professional Technology Exchange Platform
         </div>
 
         <h1>
-            打造高端化
-            <span>SMT实战技术平台</span>
+            打造未来工业级
+            <span>SMT实战技术生态</span>
         </h1>
 
         <div class="en-title">
-            Build A High-End SMT Practical Technology Platform
+            Build A Future Industrial SMT Technology Ecosystem
         </div>
 
         <p>
-            聚焦贴片机编程、SMT工艺优化、设备维护、品质分析与职业成长，
+            聚焦贴片机编程、工艺优化、品质分析、设备维护与职业成长，
             以真实工厂环境与资深工程师带教模式，
-            提供更系统、更专业、更具竞争力的技术提升方案。
+            构建高端化、系统化、实战化SMT技术提升平台。
         </p>
 
         <div class="en">
-            Focus on SMT programming, process optimization, equipment maintenance,
-            quality analysis and career development with real factory environments
-            and senior engineer practical guidance.
+            Focus on SMT programming, process optimization, quality analysis,
+            equipment maintenance and career development with real industrial
+            environments and senior engineer practical training.
         </div>
 
-        <div class="hero-btns">
-            <a href="#contact" class="btn btn-primary">立即咨询</a>
-            <a href="#course" class="btn btn-outline">查看课程</a>
+        <div class="btns">
+            <a href="#contact" class="btn primary">立即咨询</a>
+            <a href="#course" class="btn outline">查看课程</a>
         </div>
 
     </div>
@@ -561,11 +606,11 @@ footer{
 
     <div class="container">
 
-        <div class="section-title">
+        <div class="title">
             <h2>实操环境展示</h2>
             <div class="en-title">Practical Training Environment</div>
             <p>
-                真实工厂场景 · 高端设备环境 · 完整SMT产线流程
+                高端工厂级设备环境 · 完整SMT产线 · 真实工程实践
             </p>
         </div>
 
@@ -607,7 +652,7 @@ footer{
 
     <div class="container">
 
-        <div class="section-title">
+        <div class="title">
             <h2>精品课程体系</h2>
             <div class="en-title">Premium Course System</div>
             <p>
@@ -620,6 +665,7 @@ footer{
             <div class="card">
 
                 <h3>SMT基础实操课程</h3>
+
                 <div class="en-title">
                     SMT Basic Practical Training
                 </div>
@@ -634,7 +680,7 @@ footer{
                 <div class="en">
                     SMT production process understanding,
                     PCB and component recognition,
-                    standard line operation and ESD safety management.
+                    line operation and ESD safety management.
                 </div>
 
             </div>
@@ -642,6 +688,7 @@ footer{
             <div class="card">
 
                 <h3>贴片机编程专项</h3>
+
                 <div class="en-title">
                     SMT Machine Programming Training
                 </div>
@@ -663,6 +710,7 @@ footer{
             <div class="card">
 
                 <h3>工艺与品质提升</h3>
+
                 <div class="en-title">
                     Process & Quality Improvement
                 </div>
@@ -687,8 +735,8 @@ footer{
 
             <div class="stat">
                 <h3>10+</h3>
-                <p>资深工程师经验</p>
-                <div class="en">Senior Engineer Experience</div>
+                <p>资深工程经验</p>
+                <div class="en">Senior Engineering Experience</div>
             </div>
 
             <div class="stat">
@@ -719,11 +767,11 @@ footer{
 
     <div class="container">
 
-        <div class="section-title">
+        <div class="title">
             <h2>核心竞争优势</h2>
             <div class="en-title">Core Competitive Advantages</div>
             <p>
-                高端实战化教学 · 职业成长赋能 · 工厂级经验沉淀
+                工厂级实战教学 · 高端技术生态 · 长期职业成长支持
             </p>
         </div>
 
@@ -738,14 +786,13 @@ footer{
                 </div>
 
                 <p>
-                    真机设备、真实工艺、真实异常案例教学，
-                    按照企业现场标准进行训练，
-                    强调工程问题解决能力。
+                    真机设备、真实工艺与真实案例教学，
+                    强调现场问题分析与工程解决能力。
                 </p>
 
                 <div class="en">
-                    Real factory equipment and practical production scenarios
-                    focused on engineering problem-solving capabilities.
+                    Real industrial equipment and engineering scenarios
+                    focused on practical problem-solving capabilities.
                 </div>
 
             </div>
@@ -765,7 +812,7 @@ footer{
 
                 <div class="en">
                     More than 10 years of SMT engineering,
-                    production and management experience.
+                    manufacturing and management experience.
                 </div>
 
             </div>
@@ -779,13 +826,13 @@ footer{
                 </div>
 
                 <p>
-                    提供岗位成长建议、行业经验交流与长期技术支持，
-                    帮助提升职业竞争力。
+                    提供长期学习交流、职业规划、
+                    技术提升与行业经验共享支持。
                 </p>
 
                 <div class="en">
-                    Career guidance, technical sharing and long-term
-                    engineering support for professional development.
+                    Long-term learning support, career planning
+                    and technical growth assistance.
                 </div>
 
             </div>
@@ -796,7 +843,7 @@ footer{
 
 </section>
 
-<section class="contact" id="contact">
+<section class="section" id="contact">
 
     <div class="container">
 
@@ -811,38 +858,49 @@ footer{
                 </div>
 
                 <p>
-                    欢迎扫码咨询课程安排、技术交流、
-                    SMT职业成长与工程技术提升方向，
-                    支持长期学习交流与1对1实战辅导。
+                    欢迎咨询SMT课程安排、工程技术交流、
+                    职业成长方向与工厂实战技能提升方案，
+                    支持1对1高端技术辅导。
                 </p>
 
                 <div class="en">
                     Welcome to consult about SMT training,
-                    engineering technology exchange,
-                    career development and practical guidance.
+                    engineering exchange and professional development.
                 </div>
 
-                <div class="hero-btns">
-                    <a href="#" class="btn btn-primary">预约交流</a>
-                    <a href="#" class="btn btn-outline">获取课程表</a>
+                <div class="btns">
+                    <a href="#" class="btn primary">预约交流</a>
+                    <a href="#" class="btn outline">获取课程表</a>
                 </div>
 
             </div>
 
             <div class="panel">
 
-                <div class="qr-wrap">
+                <div class="qrs">
 
                     <div class="qr">
+
                         <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/wechat.png">
+
                         <p>微信咨询</p>
-                        <div class="en">WeChat Consultation</div>
+
+                        <div class="en">
+                            WeChat Consultation
+                        </div>
+
                     </div>
 
                     <div class="qr">
+
                         <img src="https://raw.githubusercontent.com/SMTedu/smtpeixun/main/account.jpg">
+
                         <p>微信公众号</p>
-                        <div class="en">Official Account</div>
+
+                        <div class="en">
+                            Official Account
+                        </div>
+
                     </div>
 
                 </div>
